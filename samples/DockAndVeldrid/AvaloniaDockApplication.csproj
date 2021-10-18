@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\*" />
+    <None Remove="Icons\Icons.xaml" />
+    <AvaloniaResource Include="Icons\Icons.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.4" />
+    <PackageReference Include="Veldrid" Version="4.8.0" />
+    <PackageReference Include="Veldrid.SDL2" Version="4.8.0" />
+    <PackageReference Include="Veldrid.SPIRV" Version="1.0.14" />
+    <PackageReference Include="Veldrid.StartupUtilities" Version="4.8.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Avalonia.Desktop\Avalonia.Desktop.csproj" />
+    <ProjectReference Include="..\..\src\Avalonia.Diagnostics\Avalonia.Diagnostics.csproj" />
+    <ProjectReference Include="..\..\src\Avalonia.ReactiveUI\Avalonia.ReactiveUI.csproj" />
+    <ProjectReference Include="..\Dock\Dock.Avalonia\Dock.Avalonia.csproj" />
+    <ProjectReference Include="..\Dock\Dock.Model.ReactiveUI\Dock.Model.ReactiveUI.csproj" />
+  </ItemGroup>
+  <Import Project="..\..\build\BuildTargets.targets" /> 
+</Project>

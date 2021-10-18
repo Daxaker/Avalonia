@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="AvaloniaDockApplication.Views.Tools.TreeViewToolView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:models="clr-namespace:AvaloniaDockApplication.Models"
+             mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="400">
+    <TreeView BorderThickness="0" Items ="{Binding Items}" >
+        <TreeView.Styles>
+            <Style Selector="TreeViewItem">
+                <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+            </Style>
+            <Style Selector="ContextMenu">
+                <Setter Property="Foreground" Value="{DynamicResource ThemeForegroundBrush}" />
+            </Style>
+        </TreeView.Styles>
+        <TreeView.DataTemplates>
+            <TreeDataTemplate DataType="models:TreeListBranch" ItemsSource="{Binding Items}">
+                <StackPanel Orientation="Horizontal" Spacing="4">
+                    <StackPanel.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Add">
+                                <MenuItem Header="New Project..." />
+                                <MenuItem Header="Existing Project..."  />
+                                <MenuItem Header="New Solution Folder..." />
+                            </MenuItem>
+                            <Separator />
+                            <MenuItem Header="Remove"  Command="{Binding RemoveCommand}" />
+                        </ContextMenu>
+                    </StackPanel.ContextMenu>
+                    <DrawingPresenter Width="16" Height="16" Drawing="{Binding Icon}" />
+                    <TextBlock Text="{Binding Caption}" Height="15" />
+                </StackPanel>
+            </TreeDataTemplate>
+            <TreeDataTemplate DataType="models:TreeListLeaf">
+                <StackPanel Orientation="Horizontal" Spacing="4">
+                    <DrawingPresenter Width="16" Height="16" Drawing="{Binding Icon}" />
+                    <TextBlock Text="{Binding Caption}" Height="15" />
+                </StackPanel>
+            </TreeDataTemplate>
+        </TreeView.DataTemplates>
+    </TreeView>
+</UserControl>

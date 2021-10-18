@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Library</OutputType>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Dock.ProportionalStackPanel</PackageId>
+  </PropertyGroup>
+
+  <Import Project="..\..\..\build\Dock.Base.props" />
+  <Import Project="..\..\..\build\Dock.SignAssembly.props" />
+  <Import Project="..\..\..\build\Dock.SourceLink.props" />
+<!--  <Import Project="..\..\build\ReferenceAssemblies.props" />-->
+<!--  <Import Project="..\..\build\Avalonia.props" />-->
+<!--  <Import Project="..\..\build\Avalonia.Diagnostics.props" />-->
+  <Import Project="..\..\..\build\BuildTargets.targets" />
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\*" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\packages\Avalonia\Avalonia.csproj" />
+    <ProjectReference Include="..\..\..\src\Avalonia.Diagnostics\Avalonia.Diagnostics.csproj" />
+    <ProjectReference Include="..\Dock.Model\Dock.Model.csproj" />
+  </ItemGroup>
+
+</Project>
