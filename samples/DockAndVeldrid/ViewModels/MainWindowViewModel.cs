@@ -18,23 +18,23 @@ namespace AvaloniaDockApplication.ViewModels
 		{
 			var tb = new List<MenuItemModel>()
 			{
-				new(
+				new MenuItemModel(
 					new Lazy<IMenuItem>(
 						() => new CommonMenuItem("Save",
 							IconService.Instance.GetCompletionKindImage("Save"))),
 					Enumerable.Empty<MenuItemModel>()),
-				new(
+				new MenuItemModel(
 					new Lazy<IMenuItem>(
 						() => new CommonMenuItem("SaveAll",
 							IconService.Instance.GetCompletionKindImage("SaveAll"))),
 					Enumerable.Empty<MenuItemModel>()),
 				new MenuItemSeparatorModel(),
-				new(
+				new MenuItemModel(
 					new Lazy<IMenuItem>(
 						() => new CommonMenuItem("Undo",
 							IconService.Instance.GetCompletionKindImage("Undo"))),
 					Enumerable.Empty<MenuItemModel>()),
-				new(
+				new MenuItemModel(
 					new Lazy<IMenuItem>(
 						() => new CommonMenuItem("Redo",
 							IconService.Instance.GetCompletionKindImage("Redo"))),
